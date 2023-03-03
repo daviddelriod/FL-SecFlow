@@ -1,0 +1,10 @@
+params:
+  cuda_devices: []
+
+optional_plugin_components: {}
+
+shard_descriptor:
+  template: shard_descriptor.ChestShardDescriptor
+  params:
+    data_folder: chest_xray
+    rank_worldsize: 1,1 #envoy number X, total envoys
