@@ -1,3 +1,4 @@
-*.json
+kaggle.json
 envoy/chest-xray-pneumonia/
+.ipynb_checkpoints/
 *.jpeg
