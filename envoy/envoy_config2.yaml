@@ -7,4 +7,4 @@ shard_descriptor:
   template: shard_descriptor.ChestShardDescriptor
   params:
     data_folder: chest-xray-pneumonia
-    rank_worldsize: 1,2 #envoy number X, total envoys
+    rank_worldsize: 2,2 #envoy number X, total envoys

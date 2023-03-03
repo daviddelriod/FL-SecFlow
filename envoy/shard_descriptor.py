@@ -54,12 +54,12 @@ class ChestShardDescriptor(ShardDescriptor):
             rank_worldsize: str = '1, 1',
             **kwargs
     ):
-        """Initialize CovidShardDescriptor."""
+        """Initialize Cifar10ShardDescriptor."""
         self.rank, self.worldsize = tuple(int(num) for num in rank_worldsize.split(','))
-        (img_train, tab_train, y_train), (img_test, tab_test, y_test) = self.download_data()
+        (x_train, y_train), (x_test, y_test) = self.download_data()
         self.data_by_type = {
-            'train': (img_train, tab_train, y_train),
-            'val': (img_test, tab_test, y_test)
+            'train': (x_train, y_train),
+            'val': (x_test, y_test)
         }
 
     def get_shard_dataset_types(self) -> List[str]:
@@ -80,17 +80,17 @@ class ChestShardDescriptor(ShardDescriptor):
     @property
     def sample_shape(self):
         """Return the sample shape info."""
-        return ['1', '256', '256']
+        return ['150', '150', '1']
 
     @property
     def target_shape(self):
         """Return the target shape info."""
-        return ['1', '256', '256']
+        return ['150', '150', '1']
 
     @property
     def dataset_description(self) -> str:
         """Return the dataset description."""
-        return (f'Images-tabular dataset, shard number {self.rank}'
+        return (f'Chest X-ray dataset, shard number {self.rank}'
                 f' out of {self.worldsize}')
     
     
