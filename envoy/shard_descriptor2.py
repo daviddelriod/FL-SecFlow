@@ -29,7 +29,7 @@ logger = logging.getLogger(__name__)
 class ChestShardDataset(ShardDataset):
     """Chest Shard dataset class."""
 
-    def __init__(self, x, y, data_type, rank=1, worldsize=2):
+    def __init__(self, x, y, data_type, rank=2, worldsize=2):
         """Initialize CovidDataset."""
         self.data_type = data_type
         self.rank = rank
@@ -51,7 +51,7 @@ class ChestShardDescriptor(ShardDescriptor):
 
     def __init__(
             self,
-            rank_worldsize: str = '1, 2',
+            rank_worldsize: str = '2, 2',
             **kwargs
     ):
         """Initialize Cifar10ShardDescriptor."""

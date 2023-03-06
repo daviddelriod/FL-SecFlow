@@ -4,7 +4,7 @@ params:
 optional_plugin_components: {}
 
 shard_descriptor:
-  template: shard_descriptor.ChestShardDescriptor
+  template: shard_descriptor2.ChestShardDescriptor
   params:
     data_folder: chest-xray-pneumonia
     rank_worldsize: 2,2 #envoy number X, total envoys
