@@ -3,3 +3,5 @@ envoy/chest-xray-pneumonia/
 .ipynb_checkpoints/
 *.jpeg
 *.pyc
+*.amlignore
+*.amltmp
