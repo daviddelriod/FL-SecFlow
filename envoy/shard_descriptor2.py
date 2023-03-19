@@ -106,25 +106,32 @@ class ChestShardDescriptor(ShardDescriptor):
         valid_path = os.path.join(current_dir, val_path)
         test_path = os.path.join(current_dir, te_path)
 
-        train_transform = transforms.Compose([
-        transforms.RandomRotation(50),
-        transforms.ColorJitter(brightness=0.2, contrast=0, saturation=0, hue=0),
-        transforms.RandomAffine(0, translate=(0.1, 0.1)),
-        transforms.RandomHorizontalFlip(p=1),
-        transforms.Resize((150,150)),
-        transforms.Grayscale(),
-        transforms.ToTensor(),
-        transforms.Normalize((0.5), (0.5))])
+        data_transforms = {
+            'train': transforms.Compose([
+                        transforms.Resize((224, 224)),
+                        transforms.CenterCrop(224),
+                        transforms.RandomHorizontalFlip(), # randomly flip and rotate
+                        transforms.RandomRotation(10),
+                        transforms.ToTensor(),
+                        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+                    ]),
+    
+            'test': transforms.Compose([
+                        transforms.Resize((224,224)),
+                        transforms.ToTensor(),
+                        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+                    ]),
+    
+            'valid': transforms.Compose([
+                        transforms.Resize((224,224)),
+                        transforms.ToTensor(),
+                        transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
+                    ])
+            }
 
-        val_test_transform = transforms.Compose([
-        transforms.Resize((150,150)),
-        transforms.Grayscale(),
-        transforms.ToTensor(),
-        transforms.Normalize((0.5), (0.5))])
-
-        train_dataset = datasets.ImageFolder((train_path), transform=train_transform)
-        val_dataset = datasets.ImageFolder((valid_path), transform=val_test_transform)
-        test_dataset = datasets.ImageFolder((test_path), transform=val_test_transform)
+        train_dataset = datasets.ImageFolder((train_path), transform=data_transforms['train'])
+        val_dataset = datasets.ImageFolder((valid_path), transform=data_transforms['valid'])
+        test_dataset = datasets.ImageFolder((test_path), transform=data_transforms['test'])
 
         val_test_data = torch.utils.data.ConcatDataset([val_dataset, test_dataset])
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=None, shuffle=True)
