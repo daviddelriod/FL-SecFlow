@@ -1,24 +1,16 @@
 # Copyright (C) 2020-2021 Intel Corporation
 # SPDX-License-Identifier: Apache-2.0
 
-"""Covid Shard Descriptor."""
+"""Chest X-ray Shard Descriptor."""
 
 import logging
 import os
-import PIL
 import torch
-import requests
 
 from typing import List
-from PIL import Image
-from torch.utils.data import Dataset, random_split
-from sklearn.model_selection import train_test_split
-from torchvision import transforms as T
 from openfl.interface.interactive_api.shard_descriptor import ShardDataset
 from openfl.interface.interactive_api.shard_descriptor import ShardDescriptor
 
-import numpy as np
-import pandas as pd
 import torchvision.datasets as datasets
 import torchvision.transforms as transforms
 
@@ -80,12 +72,12 @@ class ChestShardDescriptor(ShardDescriptor):
     @property
     def sample_shape(self):
         """Return the sample shape info."""
-        return ['150', '150', '1']
+        return ['224', '224', '3']
 
     @property
     def target_shape(self):
         """Return the target shape info."""
-        return ['150', '150', '1']
+        return ['224', '224', '3']
 
     @property
     def dataset_description(self) -> str:
