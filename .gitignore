@@ -1,6 +1,11 @@
 kaggle.json
 envoy/chest-xray-pneumonia/
 .ipynb_checkpoints/
+<<<<<<< HEAD
+=======
+.ipynb_aml_checkpoints/
+*.jpeg
+>>>>>>> 11d870aa75411bb0b7bcd8a1d16773b3579cc28b
 *.pyc
 *.amlignore
 *.amltmp
