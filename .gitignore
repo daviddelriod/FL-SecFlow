@@ -7,3 +7,4 @@ envoy/chest-xray-pneumonia/
 *.amltmp
 *copy*
 *invertinggradients*
+logs/
