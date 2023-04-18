@@ -8,3 +8,4 @@ envoy/chest-xray-pneumonia/
 *copy*
 *invertinggradients*
 logs/
+*.log
