@@ -1,5 +1,5 @@
 settings:
-  listen_host: ubuntu
+  listen_host: ubuntu@ip-172-31-0-197
   listen_port: 50051
   sample_shape: ['224', '224','3']
   target_shape: ['224', '224','3']
