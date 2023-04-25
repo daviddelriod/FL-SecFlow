@@ -89,8 +89,8 @@ class ChestShardDescriptor(ShardDescriptor):
     def download_data(self):
         """Download prepared dataset."""
         #current_dir = os.getcwd()
-        current_dir = '/'        
-        
+        current_dir = '~/'        
+        print(os.getcwd())
         tr_path = 'chest-xray-pneumonia/chest_xray/chest_xray/train'
         val_path = 'chest-xray-pneumonia/chest_xray/chest_xray/val'
         te_path = 'chest-xray-pneumonia/chest_xray/chest_xray/test'
