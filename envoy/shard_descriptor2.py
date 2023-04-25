@@ -90,10 +90,10 @@ class ChestShardDescriptor(ShardDescriptor):
         """Download prepared dataset."""
         #current_dir = os.getcwd()
         current_dir = '~/'        
-        print(os.getcwd())
-        tr_path = 'chest-xray-pneumonia/chest_xray/chest_xray/train'
-        val_path = 'chest-xray-pneumonia/chest_xray/chest_xray/val'
-        te_path = 'chest-xray-pneumonia/chest_xray/chest_xray/test'
+        
+        tr_path = 'FL-SecFlow/envoy/chest-xray-pneumonia/chest_xray/chest_xray/train'
+        val_path = 'FL-SecFlow/envoy/chest-xray-pneumonia/chest_xray/chest_xray/val'
+        te_path = 'FL-SecFlow/envoy/chest-xray-pneumonia/chest_xray/chest_xray/test'
         
         train_path = os.path.join(current_dir, tr_path)
         valid_path = os.path.join(current_dir, val_path)
