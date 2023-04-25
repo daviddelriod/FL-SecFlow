@@ -6,6 +6,8 @@
 import logging
 import os
 import torch
+import tqdm
+
 
 from typing import List
 from openfl.interface.interactive_api.shard_descriptor import ShardDataset
@@ -121,18 +123,16 @@ class ChestShardDescriptor(ShardDescriptor):
                         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
                     ])
             }
-        print('------PREIMGFOLDER-----')
         train_dataset = datasets.ImageFolder((train_path), transform=data_transforms['train'])
         val_dataset = datasets.ImageFolder((valid_path), transform=data_transforms['valid'])
         test_dataset = datasets.ImageFolder((test_path), transform=data_transforms['test'])
-        print('------PRECONCAT-----')
 
         val_test_data = torch.utils.data.ConcatDataset([val_dataset, test_dataset])
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=None, shuffle=True)
         val_test_loader = torch.utils.data.DataLoader(val_test_data, batch_size=None, shuffle=False)
-        print('------PREZIP-----')
-        x_train, y_train = zip(*[(x, y) for x, y in train_loader])
-        x_test, y_test = zip(*[(x, y) for x, y in val_test_loader])
+
+        x_train, y_train = zip(*[(x, y) for x, y in tqdm.tqdm(train_loader)])
+        x_test, y_test = zip(*[(x, y) for x, y in tqdm.tqdm(val_test_loader)])
         
         print('Chest X-Ray Pneumonia data was loaded!')
         return (x_train, y_train), (x_test, y_test)
