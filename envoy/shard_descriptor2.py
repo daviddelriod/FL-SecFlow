@@ -131,8 +131,8 @@ class ChestShardDescriptor(ShardDescriptor):
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=None, shuffle=True)
         val_test_loader = torch.utils.data.DataLoader(val_test_data, batch_size=None, shuffle=False)
 
-        x_train, y_train = zip(*[(x, y) for x, y in tqdm.tqdm(train_loader)])
         x_test, y_test = zip(*[(x, y) for x, y in tqdm.tqdm(val_test_loader)])
+        x_train, y_train = zip(*[(x, y) for x, y in tqdm.tqdm(train_loader)])
         
         print('Chest X-Ray Pneumonia data was loaded!')
         return (x_train, y_train), (x_test, y_test)
