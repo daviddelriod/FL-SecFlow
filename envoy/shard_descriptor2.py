@@ -98,7 +98,7 @@ class ChestShardDescriptor(ShardDescriptor):
         train_path = os.path.join(current_dir, tr_path)
         valid_path = os.path.join(current_dir, val_path)
         test_path = os.path.join(current_dir, te_path)
-
+        print(train_path)
         data_transforms = {
             'train': transforms.Compose([
                         transforms.Resize((224, 224)),
@@ -121,15 +121,16 @@ class ChestShardDescriptor(ShardDescriptor):
                         transforms.Normalize((0.485, 0.456, 0.406), (0.229, 0.224, 0.225)),
                     ])
             }
-
+        print('------PREIMGFOLDER-----')
         train_dataset = datasets.ImageFolder((train_path), transform=data_transforms['train'])
         val_dataset = datasets.ImageFolder((valid_path), transform=data_transforms['valid'])
         test_dataset = datasets.ImageFolder((test_path), transform=data_transforms['test'])
+        print('------PRECONCAT-----')
 
         val_test_data = torch.utils.data.ConcatDataset([val_dataset, test_dataset])
         train_loader = torch.utils.data.DataLoader(train_dataset, batch_size=None, shuffle=True)
         val_test_loader = torch.utils.data.DataLoader(val_test_data, batch_size=None, shuffle=False)
-        
+        print('------PREZIP-----')
         x_train, y_train = zip(*[(x, y) for x, y in train_loader])
         x_test, y_test = zip(*[(x, y) for x, y in val_test_loader])
         
