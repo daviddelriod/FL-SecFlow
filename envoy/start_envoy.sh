@@ -1,4 +1,4 @@
 #!/bin/bash
 set -e
 
-fx envoy start -n env_one --disable-tls --envoy-config-path envoy_config.yaml -dh ec2-52-20-29-134.compute-1.amazonaws.com -dp 50051
+fx envoy start -n env_one --disable-tls --envoy-config-path envoy_config.yaml -dh 52.20.29.134	 -dp 50051
