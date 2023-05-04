@@ -1,5 +1,5 @@
 settings:
-  listen_host: 'ip-172-31-0-197.ec2.internal'
+  listen_host: 'ec2-52-20-29-134.compute-1.amazonaws.com'
   listen_port: 4444
   sample_shape: ['224', '224','3']
   target_shape: ['224', '224','3']
