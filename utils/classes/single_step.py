@@ -3,7 +3,7 @@ import copy
 import logging
 
 from itertools import chain
-from breaching.cases.data import construct_dataloader
+
 
 log = logging.getLogger(__name__)
 
