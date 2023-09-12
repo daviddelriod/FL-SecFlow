@@ -2,10 +2,8 @@
 
 This repository contains the code and resources for my research project called ***A privacy preserving federated learning flow with gradient leakage prevention*** in this case, applied for pneumonia detection. The project explores techniques to enable privacy-preserving and secure collaborative training of machine learning models across multiple nodes, providing notebooks and methods for the implementations.
 
-
-Uploading recon.mp4…
-
-
+<video src="https://github.com/daviddelriod/FL-SecFlow/assets/64251001/0f9c2b0e-7752-4978-bec1-e03636b27e10" controls="controls" style="max-width: 730px;">
+</video>
 
 ## Abstract
 Deep learning-based approaches for pneumonia detection from chest X-rays
