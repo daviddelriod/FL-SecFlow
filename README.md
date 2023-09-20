@@ -25,6 +25,8 @@ the development of secure and privacy-preserving deep learning techniques for
 medical image analysis and has important implications for preserving the accuracy
 and accessibility of medical diagnosis.
 
+Link: https://drive.google.com/file/d/1pO8PpGSX-Jh7oVKtdadTxhrQuHOc6wpb/view?usp=sharing
+
 ## Folders' structure
 
 ### 1. `director`
